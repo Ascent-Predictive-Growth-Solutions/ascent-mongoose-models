@@ -249,6 +249,7 @@ module.exports = function (mongoose) {
     },
     mailingPeriods: { type: [MailingPeriodSchema], default: [] },
     linkedCallRailTrackers: [],
+    linkedCallRailAccounts: [],
     owner: { type: Schema.ObjectId, required: true, immutable: true },
     report: {},
   });
