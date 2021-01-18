@@ -250,6 +250,7 @@ module.exports = function (mongoose) {
     mailingPeriods: { type: [MailingPeriodSchema], default: [] },
     linkedCallRailTrackers: [],
     owner: { type: Schema.ObjectId, required: true, immutable: true },
+    report: {},
   });
 
   const PracticeSchema = new Schema({
