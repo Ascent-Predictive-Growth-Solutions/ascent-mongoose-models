@@ -249,7 +249,6 @@ module.exports = function (mongoose) {
     },
     mailingPeriods: { type: [MailingPeriodSchema], default: [] },
     linkedCallRailTrackers: [],
-    linkedCallRailAccounts: [],
     owner: { type: Schema.ObjectId, required: true, immutable: true },
     report: {},
   });
@@ -283,6 +282,8 @@ module.exports = function (mongoose) {
 
     linkedPpcCampaigns: [Schema.ObjectId],
     linkedDirectMailCampaigns: [Schema.ObjectId],
+
+    reviewsReport: {},
   });
 
   const UserSchema = new Schema({
