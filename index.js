@@ -1,18 +1,18 @@
 module.exports = function (mongoose) {
   const Schema = mongoose.Schema;
 
-  const callRailTrackersSchema = new Schema(
-    {
-      type: [
-        {
-          name: String,
-          trackerId: String,
-        },
-      ],
-      default: [],
-    },
-    { _id: false }
-  );
+  // const callRailTrackersSchema = new Schema(
+  //   {
+  //     type: [
+  //       {
+  //         name: String,
+  //         trackerId: String,
+  //       },
+  //     ],
+  //     default: [],
+  //   },
+  //   { _id: false }
+  // );
 
   const PeriodSchema = new Schema(
     {
@@ -232,7 +232,7 @@ module.exports = function (mongoose) {
     goals: {
       newPatients: { type: Number, default: 0 },
     },
-    linkedCallRailTrackers: callRailTrackersSchema,
+    linkedCallRailTrackers: [],
   });
 
   const MailingPeriodSchema = new Schema({
