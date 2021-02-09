@@ -1,5 +1,19 @@
 module.exports = function (mongoose) {
   const Schema = mongoose.Schema;
+
+  const callRailTrackersSchema = new Schema(
+    {
+      type: [
+        {
+          name: String,
+          trackerId: String,
+        },
+      ],
+      default: [],
+    },
+    { _id: false }
+  );
+
   const PeriodSchema = new Schema(
     {
       ordinal: { type: Number, required: true, immutable: true },
@@ -218,15 +232,7 @@ module.exports = function (mongoose) {
     goals: {
       newPatients: { type: Number, default: 0 },
     },
-    linkedCallRailTrackers: {
-      type: [
-        {
-          name: String,
-          trackerId: String,
-        },
-      ],
-      default: [],
-    },
+    linkedCallRailTrackers: callRailTrackersSchema,
   });
 
   const MailingPeriodSchema = new Schema({
@@ -283,7 +289,27 @@ module.exports = function (mongoose) {
     linkedPpcCampaigns: [Schema.ObjectId],
     linkedDirectMailCampaigns: [Schema.ObjectId],
 
-    reviewsReport: {},
+    reviewsReport: {
+      dateLastUpdated: { type: Date },
+      competitors: [
+        {
+          practiceName: { type: String },
+          rating: { type: Number },
+          numReviews: { type: Number },
+          placeId: { type: String },
+        },
+      ],
+      averageRating: { type: Number },
+      numberOfReviews: { type: Number },
+      months: [
+        {
+          reviewsGenerated: { type: Number },
+          averageRating: { type: Number },
+          period: { type: PeriodSchema },
+          totalReviews: { type: Number },
+        },
+      ],
+    },
   });
 
   const UserSchema = new Schema({
