@@ -299,8 +299,8 @@ module.exports = function (mongoose) {
           placeId: { type: String },
         },
       ],
-      averageRating: { type: Number },
-      numberOfReviews: { type: Number },
+      averageRating: { type: Number, default: 0 },
+      numberOfReviews: { type: Number, default: 0 },
       months: [
         {
           reviewsGenerated: { type: Number },
