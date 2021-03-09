@@ -12,11 +12,10 @@ const buildOrganicSeoMonthSchema = require("./schemaBuilders/OrganicSeoMonth");
 const buildGoogleAnalyticsMonth = require("./schemaBuilders/GoogleAnalyticsMonth");
 const buildGoogleMyBusinessMonth = require("./schemaBuilders/GoogleMyBusinessMonth");
 const buildSeoMonthSchema = require("./schemaBuilders/SeoMonth");
-const buildPpdDaySchema = require("./schemaBuilders/PpcDaySchema");
-
+const buildPpdDaySchema = require("./schemaBuilders/PpcDay");
 const buildCallRailDaySchema = require("./schemaBuilders/CallRailDay");
-const buildPpcMonthSchema = require("./schemaBuilders/PpcMonthSchema");
-const buildPpcCampaignSchema = require("./schemaBuilders/PpcCampaignSchema");
+const buildPpcMonthSchema = require("./schemaBuilders/PpcMonth");
+const buildPpcCampaignSchema = require("./schemaBuilders/PpcCampaign");
 const buildLeadSchema = require("./schemaBuilders/Lead");
 const buildReportSchema = require("./schemaBuilders/Report");
 const buildPhoneLead = require("./schemaBuilders/PhoneLead");
