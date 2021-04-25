@@ -28,7 +28,7 @@ module.exports = function (mongoose, { PeriodSchema }) {
         linkedPpcCampaigns: [mongoose.Schema.ObjectId],
         linkedDirectMailCampaigns: [mongoose.Schema.ObjectId],
 
-        ppcCampaigns: [],
+        ppcCampaigns: {type: Array, default: []},
 
         reviewsReport: {
             dateLastUpdated: { type: Date },
