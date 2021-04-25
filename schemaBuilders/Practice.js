@@ -1,4 +1,19 @@
 module.exports = function (mongoose, { PeriodSchema }) {
+    const PpcCampaignSchema = new mongoose.Schema(
+        {
+            customerId: {type: String, required: true},
+            customerName: {type: String, required: true},
+            campaignName: { type: String, required: true },
+            campaignId: { type: String, required: true },
+            isActive: { type: Boolean, default: true },
+            goals: {
+                newPatients: { type: Number, default: 0 },
+            },
+            linkedCallRailTrackers: {type: Array, default: []},
+        },
+        { _id: false }
+    );
+
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true },
         date: { type: Date, default: new Date() },
@@ -28,7 +43,7 @@ module.exports = function (mongoose, { PeriodSchema }) {
         linkedPpcCampaigns: [mongoose.Schema.ObjectId],
         linkedDirectMailCampaigns: [mongoose.Schema.ObjectId],
 
-        ppcCampaigns: {type: Array, default: []},
+        ppcCampaigns: {type: [PpcCampaignSchema], default: []},
 
         reviewsReport: {
             dateLastUpdated: { type: Date },
@@ -53,3 +68,4 @@ module.exports = function (mongoose, { PeriodSchema }) {
         },
     });
 };
+
