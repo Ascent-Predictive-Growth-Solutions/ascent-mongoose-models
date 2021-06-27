@@ -40,6 +40,10 @@ module.exports = function (mongoose, { PeriodSchema }) {
             googleSearchConsole: { type: mongoose.Schema.ObjectId },
         },
 
+        googleMyBusinessAccountId: {type: String, default: ""},
+        googleAnalyticsViewId: {type: String, default: ""},
+        googleSearchConsoleUrl: {type: String, default: ""},
+
         linkedPpcCampaigns: [mongoose.Schema.ObjectId],
         linkedDirectMailCampaigns: [mongoose.Schema.ObjectId],
 
