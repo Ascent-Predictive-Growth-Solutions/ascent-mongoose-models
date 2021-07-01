@@ -14,6 +14,13 @@ module.exports = function (mongoose, { PeriodSchema }) {
         { _id: false }
     );
 
+    const ContactSchema = new mongoose.Schema({
+        phone: {type: String, default: ""},
+        email: {type: String, default: ""},
+        name: {type: String, default: ""},
+        label: {type: String, default: ""}
+    }, {_id: false})
+
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true },
         date: { type: Date, default: new Date() },
@@ -49,27 +56,14 @@ module.exports = function (mongoose, { PeriodSchema }) {
 
         ppcCampaigns: {type: [PpcCampaignSchema], default: []},
 
-        reviewsReport: {
-            dateLastUpdated: { type: Date },
-            competitors: [
-                {
-                    practiceName: { type: String },
-                    rating: { type: Number },
-                    numReviews: { type: Number },
-                    placeId: { type: String },
-                },
-            ],
-            averageRating: { type: Number, default: 0 },
-            numberOfReviews: { type: Number, default: 0 },
-            months: [
-                {
-                    reviewsGenerated: { type: Number },
-                    averageRating: { type: Number },
-                    period: { type: PeriodSchema },
-                    totalReviews: { type: Number },
-                },
-            ],
-        },
+        doctors: {type: [String], default: []},
+
+        recurlyAccountCode: {type: String, default: ""},
+
+        websiteCallTrackers: {type: [String], default: ""},
+
+        contacts: {type:[ContactSchema], default: []}
+
     });
 };
 
