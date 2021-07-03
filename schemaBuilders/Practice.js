@@ -1,4 +1,4 @@
-module.exports = function (mongoose, { PeriodSchema }) {
+module.exports = function (mongoose) {
     const PpcCampaignSchema = new mongoose.Schema(
         {
             customerId: {type: String, required: true},
@@ -41,12 +41,6 @@ module.exports = function (mongoose, { PeriodSchema }) {
             email: { type: String, default: "" },
         },
 
-        linkedAccounts: {
-            googleMyBusiness: { type: mongoose.Schema.ObjectId },
-            googleAnalytics: { type: mongoose.Schema.ObjectId },
-            googleSearchConsole: { type: mongoose.Schema.ObjectId },
-        },
-
         googleMyBusinessAccountId: {type: String, default: ""},
         googleAnalyticsViewId: {type: String, default: ""},
         googleSearchConsoleUrl: {type: String, default: ""},
@@ -55,14 +49,10 @@ module.exports = function (mongoose, { PeriodSchema }) {
         linkedDirectMailCampaigns: [mongoose.Schema.ObjectId],
 
         ppcCampaigns: {type: [PpcCampaignSchema], default: []},
-
         doctors: {type: [String], default: []},
-
         recurlyAccountCode: {type: String, default: ""},
-
-        websiteCallTrackers: {type: [String], default: ""},
-
-        contacts: {type:[ContactSchema], default: []}
+        contacts: {type:[ContactSchema], default: []},
+        callRailCompanyId: {type: String, default: ""}
 
     });
 };
