@@ -21,7 +21,6 @@ module.exports = function (mongoose, { PeriodSchema }) {
         _id: { type: mongoose.Schema.ObjectId, auto: true, immutable: true },
         googleMyBusinessAccountId: {type: String, required: true},
         date: { type: Date, default: new Date(), immutable: true },
-        owner: { type: mongoose.Schema.ObjectId, required: true, immutable: true },
         period: { type: PeriodSchema, required: true, immutable: true },
         competitors: { type: [SeoCompetitorsSchema], default: [] },
         averageRank: { type: Number },
