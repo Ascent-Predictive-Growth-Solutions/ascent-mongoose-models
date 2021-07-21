@@ -4,6 +4,7 @@ module.exports = function (mongoose) {
         email: { type: String, required: true },
         name: { type: String, required: true },
         password: { type: String, required: true },
+        calendlyLink: { type: String, default: "" },
         type: {
             type: String,
             enum: ["EMPLOYEE", "ADMIN", "CLIENT"],
