@@ -1,0 +1,47 @@
+module.exports = function (mongoose) {
+    return new mongoose.Schema({
+        _id: { type: mongoose.Schema.ObjectId, auto: true },
+        user: {
+            firstName: String,
+            lastName: String,
+            practiceName: String,
+            email: String,
+            zipCode: String,
+            practiceType: String,
+            isCanada: Boolean,
+            userName: String,
+            searchArea: String,
+        },
+        places: { type: [Object], default: [] },
+        loading: Boolean,
+        cart: { type: [Object], default: [] },
+        onlineOptions: {
+            value: String,
+            multiplier: Number,
+            label: String,
+            capitalizedLabel: String,
+            description: String,
+            recommendation: String,
+        },
+        growthAverageType: String,
+        perPatientValue: Number,
+        profitOptions: {
+            perceptions: Boolean,
+            conversion: Boolean,
+            referrals: Boolean,
+            ancillary: Boolean,
+            acceptance: Boolean,
+            reactivation: Boolean,
+            reimbursement: Boolean,
+        },
+        profitPaymentOption: {
+            value: Number,
+            label: String,
+            disclaimer: String,
+            fee: Number,
+            planCode: String,
+        },
+        report: Object,
+        growthGoal: Number,
+    });
+};
