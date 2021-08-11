@@ -12,6 +12,7 @@ const buildReportSchema = require("./schemaBuilders/Report");
 const buildPhoneLead = require("./schemaBuilders/PhoneLead");
 const buildClientAccount = require("./schemaBuilders/ClientAccount");
 const buildClientUser = require("./schemaBuilders/ClientUser");
+const buildSessionSchema = require("./schemaBuilders/Session");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -28,6 +29,7 @@ module.exports = function (mongoose) {
     const PhoneLeadSchema = buildPhoneLead(mongoose);
     const ClientAccountSchema = buildClientAccount(mongoose);
     const ClientUserSchema = buildClientUser(mongoose);
+    const SessionSchema = buildSessionSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -42,6 +44,7 @@ module.exports = function (mongoose) {
     const CallRailDay = mongoose.model("call-rail-day", CallRailDaySchema);
     const ClientAccount = mongoose.model("client-account", ClientAccountSchema);
     const ClientUser = mongoose.model("client-user", ClientUserSchema);
+    const Session = mongoose.model("Session", SessionSchema);
 
     return {
         Practice,
@@ -57,5 +60,6 @@ module.exports = function (mongoose) {
         PhoneLead,
         ClientAccount,
         ClientUser,
+        Session,
     };
 };
