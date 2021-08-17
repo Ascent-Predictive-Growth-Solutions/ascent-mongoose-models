@@ -11,6 +11,7 @@ module.exports = function (mongoose) {
 
     return new mongoose.Schema({
         _id: { type: mongoose.Types.ObjectId, auto: true },
+        date: { type: Date, required: true },
         strategist: { type: mongoose.Types.ObjectId },
         accountName: { type: String, required: true },
         websiteAddress: { type: String, default: "" },
