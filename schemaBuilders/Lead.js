@@ -21,6 +21,8 @@ module.exports = function (mongoose) {
         source: { type: String, default: "" },
         userName: { type: String, default: "" },
         email: { type: String, default: "" },
+        phone: { type: String, default: "" },
+        sessionLink: { type: String, default: "" },
         online: { type: [ProductSchema], default: [] },
         growth: { type: [ProductSchema], default: [] },
         profit: { type: [ProductSchema], default: [] },
