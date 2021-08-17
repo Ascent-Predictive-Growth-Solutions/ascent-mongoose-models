@@ -13,7 +13,6 @@ module.exports = function (mongoose) {
             searchArea: String,
         },
         places: { type: [Object], default: [] },
-        loading: Boolean,
         cart: { type: [Object], default: [] },
         onlineOptions: {
             value: String,

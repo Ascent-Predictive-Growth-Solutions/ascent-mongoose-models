@@ -1,9 +1,11 @@
 module.exports = function (mongoose) {
-    const ProductSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        name: { type: String, default: "" },
-        price: { type: Number, default: 0 },
-    });
+    const ProductSchema = new mongoose.Schema(
+        {
+            name: { type: String, default: "" },
+            price: { type: Number, default: 0 },
+        },
+        { _id: false }
+    );
 
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true },

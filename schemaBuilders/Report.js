@@ -1,37 +1,42 @@
 module.exports = function (mongoose) {
-    const SEOKeywordSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        __v: { type: Number, default: 0 },
-        keyword: { type: String, required: true },
-        rank: { type: Number, required: true },
-    });
+    const SEOKeywordSchema = new mongoose.Schema(
+        {
+            googleSearchTerm: { type: String, required: true },
+            rank: { type: Number, required: true },
+        },
+        { _id: false }
+    );
 
-    const SEOCompetitorsSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        practiceName: { type: String, required: true },
-        averageRank: { type: Number, default: 0 },
-        overallRank: { type: Number, default: 0 },
-        keywords: { type: [SEOKeywordSchema], required: false },
-        placeId: { type: String, required: true },
-        __v: { type: Number, default: 0 },
-    });
+    const SEOCompetitorsSchema = new mongoose.Schema(
+        {
+            practiceName: { type: String, required: true },
+            averageRank: { type: Number, default: 0 },
+            overallRank: { type: Number, default: 0 },
+            rankingsFromGoogleSearches: { type: [SEOKeywordSchema], required: false },
+            placeId: { type: String, required: true },
+        },
+        { _id: false }
+    );
 
-    const PPCKeywordSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        __v: { type: Number, default: 0 },
-        keyword: { type: String, required: true },
-        cpc: { type: Number, required: true },
-    });
+    const PPCKeywordSchema = new mongoose.Schema(
+        {
+            keyword: { type: String, required: true },
+            cpc: { type: Number, required: true },
+        },
+        { _id: false }
+    );
 
-    const ReviewCompetitorSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        practiceName: { type: String, default: "" },
-        rating: { type: Number, default: 0 },
-        numReviews: { type: Number, default: 0 },
-        placeId: { type: String, required: true },
-    });
+    const ReviewCompetitorSchema = new mongoose.Schema(
+        {
+            practiceName: { type: String, default: "" },
+            rating: { type: Number, default: 0 },
+            numReviews: { type: Number, default: 0 },
+            placeId: { type: String, required: true },
+        },
+        { _id: false }
+    );
 
-    const ReportSchema = new mongoose.Schema({
+    return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true },
         owner: { type: mongoose.Schema.Types.ObjectId, required: true },
         date: { type: Date, default: new Date() },
@@ -40,7 +45,7 @@ module.exports = function (mongoose) {
                 competitors: { type: [SEOCompetitorsSchema], default: [] },
                 averageRank: { type: Number },
                 overallRank: { type: Number },
-                rankings: { type: [SEOKeywordSchema], default: [] },
+                rankingsFromGoogleSearches: { type: [SEOKeywordSchema], default: [] },
                 numCompetitors: { type: Number },
             },
             reviews: {
@@ -56,6 +61,4 @@ module.exports = function (mongoose) {
             __v: { type: Number, default: 0 },
         },
     });
-
-    return ReportSchema;
 };
