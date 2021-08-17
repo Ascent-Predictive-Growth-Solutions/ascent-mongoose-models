@@ -51,6 +51,7 @@ module.exports = function (mongoose) {
             reviews: {
                 rating: { type: Number },
                 numReviews: { type: Number },
+                reviewsRank: { type: Number },
                 topFiveAvgRating: { type: Number },
                 topFiveAvgNumReviews: { type: Number },
                 competitors: { type: [ReviewCompetitorSchema], default: [] },
