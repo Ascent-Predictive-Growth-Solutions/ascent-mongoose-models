@@ -5,6 +5,12 @@ module.exports = function (mongoose) {
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
         password: { type: String, required: true },
-        clientAccountId: { type: mongoose.Types.ObjectId, required: true },
+        clientAccountId: { type: mongoose.Types.ObjectId },
+        type: {
+            type: String,
+            enum: ["EMPLOYEE", "CLIENT"],
+            required: true,
+            default: "CLIENT",
+        },
     });
 };
