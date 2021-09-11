@@ -10,6 +10,7 @@ module.exports = function (mongoose) {
                 newPatients: { type: Number, default: 0 },
             },
             linkedCallRailTrackers: { type: Array, default: [] },
+            recurlyCampaignId: { type: String },
         },
         { _id: false }
     );
