@@ -19,9 +19,9 @@ module.exports = function (mongoose, { PeriodSchema }) {
 
     const SeoMonthSchema = new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true, immutable: true },
-        googleMyBusinessAccountId: {type: String, required: true},
-        date: { type: Date, default: new Date(), immutable: true },
-        period: { type: PeriodSchema, required: true, immutable: true },
+        googleMyBusinessAccountId: { type: String, required: true },
+        date: { type: Date, default: new Date() },
+        period: { type: PeriodSchema, required: true },
         competitors: { type: [SeoCompetitorsSchema], default: [] },
         averageRank: { type: Number },
         overallRank: { type: Number },
