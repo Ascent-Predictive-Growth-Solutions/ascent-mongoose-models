@@ -3,6 +3,7 @@ module.exports = function (mongoose) {
         customerId: { type: String, required: true },
         campaignId: { type: String, required: true },
         campaignName: { type: String, required: true },
+        customerName: { type: String, required: true },
     });
 
     const PpcCampaignSchema = new mongoose.Schema(
