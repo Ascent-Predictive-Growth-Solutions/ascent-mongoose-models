@@ -1,4 +1,10 @@
 module.exports = function (mongoose) {
+    const SubCampaignSchema = new mongoose.Schema({
+        customerId: { type: String, required: true },
+        campaignId: { type: String, required: true },
+        campaignName: { type: String, required: true },
+    });
+
     const PpcCampaignSchema = new mongoose.Schema(
         {
             customerId: { type: String, required: true },
@@ -10,6 +16,7 @@ module.exports = function (mongoose) {
                 newPatients: { type: Number, default: 0 },
             },
             linkedCallRailTrackers: { type: Array, default: [] },
+            subCampaigns: { type: [SubCampaignSchema], default: [] },
             recurlyCampaignId: { type: String },
         },
         { _id: false }
