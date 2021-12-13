@@ -6,6 +6,17 @@ module.exports = function (mongoose) {
         customerName: { type: String, required: true },
     });
 
+    const TaskSchema = new mongoose.Schema({
+        taskKey: {
+            type: String,
+            enum: ["domain", "website", "googleAds", "seo", "socialMedia"],
+            required: true,
+        },
+        s3FolderName: { type: String, required: true },
+        completed: { type: Boolean, default: false, required: true },
+        parentProduct: { type: String, required: true },
+    });
+
     const PpcCampaignSchema = new mongoose.Schema(
         {
             customerId: { type: String, required: true },
@@ -52,6 +63,8 @@ module.exports = function (mongoose) {
             phone: { type: String, default: "" },
             email: { type: String, default: "" },
         },
+
+        tasks: { type: [TaskSchema], default: [] },
 
         placeId: { type: String, default: "" },
         googleMyBusinessAccountId: { type: String, default: "" },
