@@ -15,6 +15,7 @@ module.exports = function (mongoose) {
         s3FolderName: { type: String, required: true },
         completed: { type: Boolean, default: false, required: true },
         parentProduct: { type: String, required: true },
+        taskName: { type: String, required: true },
     });
 
     const PpcCampaignSchema = new mongoose.Schema(
