@@ -12,8 +12,8 @@ module.exports = function (mongoose) {
             enum: ["domain", "website", "googleAds", "seo", "socialMedia"],
             required: true,
         },
-        s3FolderName: { type: String, required: true },
         completed: { type: Boolean, default: false, required: true },
+        formId: { type: mongoose.Schema.ObjectId },
         parentProduct: { type: String, required: true },
         taskName: { type: String, required: true },
     });

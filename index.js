@@ -14,6 +14,7 @@ const buildClientAccount = require("./schemaBuilders/ClientAccount");
 const buildClientUser = require("./schemaBuilders/ClientUser");
 const buildSessionSchema = require("./schemaBuilders/Session");
 const buildNextStrategistIdSchema = require("./schemaBuilders/NextStrategistId");
+const buildProductFormSchema = require("./schemaBuilders/ProductForm");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -32,6 +33,7 @@ module.exports = function (mongoose) {
     const ClientUserSchema = buildClientUser(mongoose);
     const SessionSchema = buildSessionSchema(mongoose);
     const NextStrategistIdSchema = buildNextStrategistIdSchema(mongoose);
+    const ProductFormSchema = buildProductFormSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -48,6 +50,7 @@ module.exports = function (mongoose) {
     const ClientUser = mongoose.model("client-user", ClientUserSchema);
     const Session = mongoose.model("Session", SessionSchema);
     const NextStrategistId = mongoose.model("NextStrategistId", NextStrategistIdSchema);
+    const ProductForm = mongoose.model("product-form", ProductFormSchema);
 
     return {
         Practice,
@@ -65,5 +68,6 @@ module.exports = function (mongoose) {
         ClientUser,
         Session,
         NextStrategistId,
+        ProductForm,
     };
 };
