@@ -71,10 +71,8 @@ module.exports = function (mongoose) {
         googleMyBusinessAccountId: { type: String, default: "" },
         googleAnalyticsViewId: { type: String, default: "" },
         googleSearchConsoleUrl: { type: String, default: "" },
-
-        linkedPpcCampaigns: [mongoose.Schema.ObjectId],
+        linkedPpcCampaigns: { type: [mongoose.Schema.ObjectId] },
         linkedDirectMailCampaigns: [mongoose.Schema.ObjectId],
-
         ppcCampaigns: { type: [PpcCampaignSchema], default: [] },
         doctors: { type: [String], default: [] },
         recurlyAccountCode: { type: String, default: "" },
