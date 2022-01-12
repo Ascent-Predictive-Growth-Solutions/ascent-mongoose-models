@@ -9,7 +9,15 @@ module.exports = function (mongoose) {
     const TaskSchema = new mongoose.Schema({
         taskKey: {
             type: String,
-            enum: ["domain", "website", "googleAds", "seo", "socialMedia", "brand"],
+            enum: [
+                "domain",
+                "website",
+                "googleAds",
+                "seo",
+                "socialMedia",
+                "brand",
+                "googleMyBusiness",
+            ],
             required: true,
         },
         completed: { type: Boolean, default: false, required: true },
