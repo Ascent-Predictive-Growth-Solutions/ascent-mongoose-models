@@ -86,5 +86,6 @@ module.exports = function (mongoose) {
         recurlyAccountCode: { type: String, default: "" },
         contacts: { type: [ContactSchema], default: [] },
         callRailCompanyId: { type: String, default: "" },
+        veloxPracticeId: { type: String, default: "" },
     });
 };
