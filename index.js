@@ -16,6 +16,12 @@ const buildSessionSchema = require("./schemaBuilders/Session");
 const buildNextStrategistIdSchema = require("./schemaBuilders/NextStrategistId");
 const buildProductFormSchema = require("./schemaBuilders/ProductForm");
 const buildPracticeManagementReportSchema = require("./schemaBuilders/PracticeManagementReport");
+const buildSeoFormSchema = require("./schemaBuilders/SeoForm");
+const buildBrandFormSchema = require("./schemaBuilders/BrandForm");
+const buildSocialMediaFormSchema = require("./schemaBuilders/SocialMediaForm");
+const buildGoogleAdsFormSchema = require("./schemaBuilders/GoogleAdsForm");
+const buildWebsiteFormSchema = require("./schemaBuilders/WebsiteForm");
+const buildDomainFormSchema = require("./schemaBuilders/DomainForm");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -36,6 +42,12 @@ module.exports = function (mongoose) {
     const NextStrategistIdSchema = buildNextStrategistIdSchema(mongoose);
     const ProductFormSchema = buildProductFormSchema(mongoose);
     const PracticeManagementReportSchema = buildPracticeManagementReportSchema(mongoose);
+    const SeoFormSchema = buildSeoFormSchema(mongoose);
+    const BrandFormSchema = buildBrandFormSchema(mongoose);
+    const SocialMediaFormSchema = buildSocialMediaFormSchema(mongoose);
+    const GoogleAdsFormSchema = buildGoogleAdsFormSchema(mongoose);
+    const WebsiteFormSchema = buildWebsiteFormSchema(mongoose);
+    const DomainFormSchema = buildDomainFormSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -57,6 +69,12 @@ module.exports = function (mongoose) {
         "practice-management-report",
         PracticeManagementReportSchema
     );
+    const SeoForm = mongoose.model("seo-form", SeoFormSchema);
+    const BrandForm = mongoose.model("brand-form", BrandFormSchema);
+    const SocialMediaForm = mongoose.model("social-media-form", SocialMediaFormSchema);
+    const GoogleAdsForm = mongoose.model("google-ads-form", GoogleAdsFormSchema);
+    const WebsiteForm = mongoose.model("website-form", WebsiteFormSchema);
+    const DomainForm = mongoose.model("domain-form", DomainFormSchema);
 
     return {
         Practice,
@@ -76,5 +94,11 @@ module.exports = function (mongoose) {
         NextStrategistId,
         ProductForm,
         PracticeManagementReport,
+        SeoForm,
+        BrandForm,
+        SocialMediaForm,
+        GoogleAdsForm,
+        WebsiteForm,
+        DomainForm,
     };
 };
