@@ -72,6 +72,7 @@ module.exports = function (mongoose) {
             phone: { type: String, default: "" },
             email: { type: String, default: "" },
         },
+        originalNumberOfSearchConsoleKeywords: { type: Number, default: 0 },
 
         tasks: { type: [TaskSchema], default: [] },
 
