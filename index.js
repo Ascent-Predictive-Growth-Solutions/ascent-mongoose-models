@@ -22,7 +22,7 @@ const buildSocialMediaFormSchema = require("./schemaBuilders/SocialMediaForm");
 const buildGoogleAdsFormSchema = require("./schemaBuilders/GoogleAdsForm");
 const buildWebsiteFormSchema = require("./schemaBuilders/WebsiteForm");
 const buildDomainFormSchema = require("./schemaBuilders/DomainForm");
-const buildCachedSeoReportSchema = require("./schemaBuilders/CachedSeoReport");
+const buildSeoSummaryReportSchema = require("./schemaBuilders/SeoSummaryReport");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -49,7 +49,7 @@ module.exports = function (mongoose) {
     const GoogleAdsFormSchema = buildGoogleAdsFormSchema(mongoose);
     const WebsiteFormSchema = buildWebsiteFormSchema(mongoose);
     const DomainFormSchema = buildDomainFormSchema(mongoose);
-    const CachedSeoReportSchema = buildCachedSeoReportSchema(mongoose);
+    const SeoSummaryReportSchema = buildSeoSummaryReportSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -77,7 +77,7 @@ module.exports = function (mongoose) {
     const GoogleAdsForm = mongoose.model("google-ads-form", GoogleAdsFormSchema);
     const WebsiteForm = mongoose.model("website-form", WebsiteFormSchema);
     const DomainForm = mongoose.model("domain-form", DomainFormSchema);
-    const CachedSeoReport = mongoose.model("cached-seo-report", CachedSeoReportSchema);
+    const SeoSummaryReport = mongoose.model("seo-summary-report", SeoSummaryReportSchema);
 
     return {
         Practice,
@@ -103,6 +103,6 @@ module.exports = function (mongoose) {
         GoogleAdsForm,
         WebsiteForm,
         DomainForm,
-        CachedSeoReport,
+        SeoSummaryReport,
     };
 };

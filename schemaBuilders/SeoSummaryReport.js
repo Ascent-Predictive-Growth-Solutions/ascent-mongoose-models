@@ -16,7 +16,8 @@ module.exports = function (mongoose) {
             ],
             required: true,
         },
-        date: { type: Date, required: true },
+        lastUpdate: { type: Date, required: true },
         rank: { type: Number, required: true },
+        numberOfCompetitors: { type: Number, required: true },
     });
 };
