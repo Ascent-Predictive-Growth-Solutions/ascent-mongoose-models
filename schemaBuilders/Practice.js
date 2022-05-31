@@ -88,5 +88,6 @@ module.exports = function (mongoose) {
         contacts: { type: [ContactSchema], default: [] },
         callRailCompanyId: { type: String, default: "" },
         veloxPracticeId: { type: String, default: "" },
+        adviceLocalClientId: { type: String, default: "" },
     });
 };
