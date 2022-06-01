@@ -23,6 +23,7 @@ const buildGoogleAdsFormSchema = require("./schemaBuilders/GoogleAdsForm");
 const buildWebsiteFormSchema = require("./schemaBuilders/WebsiteForm");
 const buildDomainFormSchema = require("./schemaBuilders/DomainForm");
 const buildSeoSummaryReportSchema = require("./schemaBuilders/SeoSummaryReport");
+const buildCallRailCallSchema = require("./schemaBuilders/CallRailCall");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -50,6 +51,7 @@ module.exports = function (mongoose) {
     const WebsiteFormSchema = buildWebsiteFormSchema(mongoose);
     const DomainFormSchema = buildDomainFormSchema(mongoose);
     const SeoSummaryReportSchema = buildSeoSummaryReportSchema(mongoose);
+    const CallRailCallSchema = buildCallRailCallSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -78,6 +80,7 @@ module.exports = function (mongoose) {
     const WebsiteForm = mongoose.model("website-form", WebsiteFormSchema);
     const DomainForm = mongoose.model("domain-form", DomainFormSchema);
     const SeoSummaryReport = mongoose.model("seo-summary-report", SeoSummaryReportSchema);
+    const CallRailCall = mongoose.model("call-rail-call", CallRailCallSchema);
 
     return {
         Practice,
@@ -104,5 +107,6 @@ module.exports = function (mongoose) {
         WebsiteForm,
         DomainForm,
         SeoSummaryReport,
+        CallRailCall,
     };
 };
