@@ -19,7 +19,7 @@ module.exports = function (mongoose, { RankingFromGoogleSearchSchema, SeoCompeti
         lastUpdate: { type: Date, required: true },
         rank: { type: Number, required: true },
         numberOfCompetitors: { type: Number, required: true },
-        competitors: { type: [SeoCompetitorsSchema], default: [] },
-        rankingsFromGoogleSearchTerms: { type: [RankingFromGoogleSearchSchema], default: [] },
+        competitors: { type: [SeoCompetitorsSchema] },
+        rankingsFromGoogleSearchTerms: { type: [RankingFromGoogleSearchSchema] },
     });
 };
