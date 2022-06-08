@@ -1,28 +1,13 @@
-module.exports = function (mongoose, { PeriodSchema }) {
-    const RankingFromGoogleSearchSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        googleSearchTerm: { type: String, required: true },
-        rank: { type: Number, required: true },
-    });
-
-    const SeoCompetitorsSchema = new mongoose.Schema({
-        _id: { type: mongoose.Schema.ObjectId, auto: true },
-        practiceName: { type: String, required: true },
-        averageRank: { type: Number, default: 0 },
-        overallRank: { type: Number, default: 0 },
-        rankingsFromGoogleSearches: {
-            type: [RankingFromGoogleSearchSchema],
-            required: false,
-        },
-        placeId: { type: String, required: true },
-    });
-
-    const SeoMonthSchema = new mongoose.Schema({
+module.exports = function (
+    mongoose,
+    { PeriodSchema, RankingFromGoogleSearchSchema, SeoCompetitorSchema }
+) {
+    return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true, immutable: true },
         googleMyBusinessAccountId: { type: String, required: true },
         date: { type: Date, default: new Date() },
         period: { type: PeriodSchema, required: true },
-        competitors: { type: [SeoCompetitorsSchema], default: [] },
+        competitors: { type: [SeoCompetitorSchema], default: [] },
         averageRank: { type: Number },
         overallRank: { type: Number },
         rankingsFromGoogleSearches: {
@@ -31,5 +16,4 @@ module.exports = function (mongoose, { PeriodSchema }) {
         },
         numCompetitors: { type: Number },
     });
-    return SeoMonthSchema;
 };

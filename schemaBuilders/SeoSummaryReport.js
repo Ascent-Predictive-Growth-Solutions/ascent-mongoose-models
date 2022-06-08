@@ -1,4 +1,4 @@
-module.exports = function (mongoose) {
+module.exports = function (mongoose, { RankingFromGoogleSearchSchema, SeoCompetitorsSchema }) {
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true, immutable: true },
         googleMyBusinessAccountId: { type: String, required: true },
@@ -19,5 +19,7 @@ module.exports = function (mongoose) {
         lastUpdate: { type: Date, required: true },
         rank: { type: Number, required: true },
         numberOfCompetitors: { type: Number, required: true },
+        competitors: { type: [SeoCompetitorsSchema], default: [] },
+        rankingsFromGoogleSearchTerms: { type: [RankingFromGoogleSearchSchema], default: [] },
     });
 };
