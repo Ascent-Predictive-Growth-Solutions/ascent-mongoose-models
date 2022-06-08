@@ -57,6 +57,11 @@ module.exports = function (mongoose) {
         _id: { type: mongoose.Schema.ObjectId, auto: true },
         date: { type: Date, default: new Date() },
 
+        seoMonthsTrackingParameters: {
+            keywordSetLabel: { type: String },
+            searchAreaType: { type: String },
+        },
+
         practiceName: { type: String, default: "" },
         active: { type: Boolean, default: false },
         type: { type: String, default: "" },
