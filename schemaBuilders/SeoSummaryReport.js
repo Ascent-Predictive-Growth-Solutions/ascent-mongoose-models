@@ -1,4 +1,6 @@
-module.exports = function (mongoose, { RankingFromGoogleSearchSchema, SeoCompetitorsSchema }) {
+const subDocumentModel = require("./subDocumentModel");
+
+module.exports = function (mongoose) {
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true, immutable: true },
         googleMyBusinessAccountId: { type: String, required: true },
@@ -19,7 +21,10 @@ module.exports = function (mongoose, { RankingFromGoogleSearchSchema, SeoCompeti
         lastUpdate: { type: Date, required: true },
         rank: { type: Number, required: true },
         numberOfCompetitors: { type: Number, required: true },
-        competitors: [SeoCompetitorsSchema],
-        rankingsFromGoogleSearchTerms: [RankingFromGoogleSearchSchema],
+        competitors: { type: [subDocumentModel.seoCompetitor], required: false },
+        rankingsFromGoogleSearchTerms: {
+            type: [subDocumentModel.rankingFromGoogleSearch],
+            required: false,
+        },
     });
 };

@@ -24,20 +24,12 @@ const buildWebsiteFormSchema = require("./schemaBuilders/WebsiteForm");
 const buildDomainFormSchema = require("./schemaBuilders/DomainForm");
 const buildSeoSummaryReportSchema = require("./schemaBuilders/SeoSummaryReport");
 const buildCallRailCallSchema = require("./schemaBuilders/CallRailCall");
-const buildRankingFromGoogleSearchSchema = require("./schemaBuilders/RankingFromGoogleSearch");
-const buildSeoCompetitorSchema = require("./schemaBuilders/SeoCompetitor");
 
 module.exports = function (mongoose) {
-    const RankingFromGoogleSearchSchema = buildRankingFromGoogleSearchSchema(mongoose);
-    const SeoCompetitorSchema = buildSeoCompetitorSchema(mongoose, {
-        RankingFromGoogleSearchSchema,
-    });
     const PeriodSchema = buildPeriodSchema(mongoose);
     const KpiMonthSchema = buildKpiMonthSchema(mongoose, { PeriodSchema });
     const SeoMonthSchema = buildSeoMonthSchema(mongoose, {
         PeriodSchema,
-        RankingFromGoogleSearchSchema,
-        SeoCompetitorSchema,
     });
     const CallRailDaySchema = buildCallRailDaySchema(mongoose, { PeriodSchema });
     const NoteSchema = buildNoteSchema(mongoose);
@@ -60,10 +52,7 @@ module.exports = function (mongoose) {
     const GoogleAdsFormSchema = buildGoogleAdsFormSchema(mongoose);
     const WebsiteFormSchema = buildWebsiteFormSchema(mongoose);
     const DomainFormSchema = buildDomainFormSchema(mongoose);
-    const SeoSummaryReportSchema = buildSeoSummaryReportSchema(mongoose, {
-        RankingFromGoogleSearchSchema,
-        SeoCompetitorSchema,
-    });
+    const SeoSummaryReportSchema = buildSeoSummaryReportSchema(mongoose);
     const CallRailCallSchema = buildCallRailCallSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
