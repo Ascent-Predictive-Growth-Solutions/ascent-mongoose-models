@@ -12,6 +12,6 @@ module.exports = function (mongoose) {
             required: true,
             default: "CLIENT",
         },
-        mostRecentLogin: { type: Date }
+
     });
 };

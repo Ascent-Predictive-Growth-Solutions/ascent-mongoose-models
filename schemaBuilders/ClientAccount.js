@@ -22,5 +22,9 @@ module.exports = function (mongoose) {
         primaryContact: { type: ContactSchema },
         contacts: { type: [ContactSchema], default: [] },
         practices: { type: [mongoose.Types.ObjectId], default: [] },
+        mostRecentLogin: {
+            timestamp: { type: Date },
+            userId: { type: String },
+        },
     });
 };
