@@ -24,7 +24,7 @@ module.exports = function (mongoose) {
         practices: { type: [mongoose.Types.ObjectId], default: [] },
         mostRecentLogin: {
             timestamp: { type: Date },
-            userId: { type: String },
+            userId: { type: mongoose.Types.ObjectId },
         },
     });
 };
