@@ -89,5 +89,6 @@ module.exports = function (mongoose) {
         callRailCompanyId: { type: String, default: "" },
         veloxPracticeId: { type: String, default: "" },
         adviceLocalClientId: { type: String, default: "" },
+        googleAnalyticsPropertyId: { type: String },
     });
 };
