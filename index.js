@@ -25,6 +25,7 @@ const buildDomainFormSchema = require("./schemaBuilders/DomainForm");
 const buildSeoSummaryReportSchema = require("./schemaBuilders/SeoSummaryReport");
 const buildCallRailCallSchema = require("./schemaBuilders/CallRailCall");
 const buildEventSchema = require("./schemaBuilders/Event");
+const buildNewPatientSchema = require("./schemaBuilders/NewPatient");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -56,6 +57,7 @@ module.exports = function (mongoose) {
     const SeoSummaryReportSchema = buildSeoSummaryReportSchema(mongoose);
     const CallRailCallSchema = buildCallRailCallSchema(mongoose);
     const EventSchema = buildEventSchema(mongoose);
+    const NewPatientSchema = buildNewPatientSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -86,6 +88,7 @@ module.exports = function (mongoose) {
     const SeoSummaryReport = mongoose.model("seo-summary-report", SeoSummaryReportSchema);
     const CallRailCall = mongoose.model("call-rail-call", CallRailCallSchema);
     const Event = mongoose.model("event", EventSchema);
+    const NewPatient = mongoose.model("new-patient", NewPatientSchema);
 
     return {
         Practice,
@@ -114,5 +117,6 @@ module.exports = function (mongoose) {
         SeoSummaryReport,
         CallRailCall,
         Event,
+        NewPatient,
     };
 };

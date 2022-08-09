@@ -17,5 +17,6 @@ module.exports = function (mongoose) {
         tags: { type: [TagSchema], default: [] },
         rawNumber: { type: String },
         isAnswered: { type: Boolean },
+        isDuringBusinessHours: { type: Boolean },
     });
 };
