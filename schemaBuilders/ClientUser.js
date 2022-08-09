@@ -6,12 +6,12 @@ module.exports = function (mongoose) {
         lastName: { type: String, required: true },
         password: { type: String, required: true },
         clientAccountId: { type: mongoose.Types.ObjectId },
+        firebaseId: { type: String },
         type: {
             type: String,
             enum: ["EMPLOYEE", "CLIENT"],
             required: true,
             default: "CLIENT",
         },
-
     });
 };
