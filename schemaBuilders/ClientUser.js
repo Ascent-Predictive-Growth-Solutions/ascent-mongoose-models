@@ -3,7 +3,7 @@ module.exports = function (mongoose) {
         _id: { type: mongoose.Types.ObjectId, auto: true },
         email: { type: String, required: true },
         firstName: { type: String, required: true },
-        lastName: { type: String, required: true },
+        lastName: { type: String, default: "" },
         password: { type: String, required: true },
         clientAccountId: { type: mongoose.Types.ObjectId },
         firebaseId: { type: String },
