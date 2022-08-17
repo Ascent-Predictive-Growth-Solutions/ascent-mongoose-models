@@ -26,6 +26,8 @@ const buildSeoSummaryReportSchema = require("./schemaBuilders/SeoSummaryReport")
 const buildCallRailCallSchema = require("./schemaBuilders/CallRailCall");
 const buildEventSchema = require("./schemaBuilders/Event");
 const buildNewPatientSchema = require("./schemaBuilders/NewPatient");
+const buildVeloxTreatmentSchema = require("./schemaBuilders/VeloxTreatment");
+const buildVeloxPatientSchema = require("./schemaBuilders/VeloxPatient");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -58,6 +60,8 @@ module.exports = function (mongoose) {
     const CallRailCallSchema = buildCallRailCallSchema(mongoose);
     const EventSchema = buildEventSchema(mongoose);
     const NewPatientSchema = buildNewPatientSchema(mongoose);
+    const VeloxTreatmentSchema = buildVeloxTreatmentSchema(mongoose);
+    const VeloxPatientSchema = buildVeloxPatientSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -89,6 +93,8 @@ module.exports = function (mongoose) {
     const CallRailCall = mongoose.model("call-rail-call", CallRailCallSchema);
     const Event = mongoose.model("event", EventSchema);
     const NewPatient = mongoose.model("new-patient", NewPatientSchema);
+    const VeloxPatient = mongoose.model("velox-patient", VeloxPatientSchema);
+    const VeloxTreatment = mongoose.model("velox-treatment", VeloxTreatmentSchema);
 
     return {
         Practice,
@@ -118,5 +124,7 @@ module.exports = function (mongoose) {
         CallRailCall,
         Event,
         NewPatient,
+        VeloxTreatment,
+        VeloxPatient,
     };
 };

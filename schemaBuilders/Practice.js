@@ -90,5 +90,6 @@ module.exports = function (mongoose) {
         veloxPracticeId: { type: String, default: "" },
         adviceLocalClientId: { type: String, default: "" },
         googleAnalyticsPropertyId: { type: String },
+        nextVeloxTimestamp: { type: String },
     });
 };
