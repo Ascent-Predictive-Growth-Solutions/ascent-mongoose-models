@@ -5,6 +5,7 @@ module.exports = function (mongoose) {
     });
 
     return new mongoose.Schema({
+        recurlyAccountCode: { type: String, required: true },
         totalNewPatients: { type: Number, required: true },
         totalPaid: { type: Number, required: true },
         date: { type: Date, required: true },
