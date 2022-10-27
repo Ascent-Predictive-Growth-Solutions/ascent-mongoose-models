@@ -19,8 +19,20 @@ describe("User", () => {
             email: "jon@ascentpgs.com",
             name: "jon doe",
             password: "12345",
+            roles: ["STRATEGIST"],
             type: "EMPLOYEE",
         });
         await user.validate();
+    });
+
+    it("should add defaults", () => {
+        const user = new models.User({});
+
+        expect(user.toObject()).toEqual({
+            _id: expect.any(mongoose.Types.ObjectId),
+            calendlyLink: "",
+            imageUrl: "",
+            roles: [],
+        });
     });
 });
