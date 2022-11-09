@@ -19,7 +19,7 @@ describe("User", () => {
             email: "jon@ascentpgs.com",
             name: "jon doe",
             password: "12345",
-            roles: ["STRATEGIST"],
+            roleCodes: ["STRATEGIST"],
             type: "EMPLOYEE",
         });
         await user.validate();
@@ -32,7 +32,7 @@ describe("User", () => {
             _id: expect.any(mongoose.Types.ObjectId),
             calendlyLink: "",
             imageUrl: "",
-            roles: [],
+            roleCodes: [],
         });
     });
 });

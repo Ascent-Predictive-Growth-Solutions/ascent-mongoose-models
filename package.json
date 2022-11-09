@@ -1,6 +1,6 @@
 {
   "name": "ascent-mongoose-models",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "main": "index.js",
   "dependencies": {
     "@types/jest": "^26.0.20"
