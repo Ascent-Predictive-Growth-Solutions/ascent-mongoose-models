@@ -29,7 +29,6 @@ const buildNewPatientSchema = require("./schemaBuilders/NewPatient");
 const buildVeloxTreatmentSchema = require("./schemaBuilders/VeloxTreatment");
 const buildVeloxPatientSchema = require("./schemaBuilders/VeloxPatient");
 const buildInvoiceSchema = require("./schemaBuilders/Invoice");
-const buildRoleSchema = require("./schemaBuilders/Role");
 
 module.exports = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
@@ -65,7 +64,6 @@ module.exports = function (mongoose) {
     const VeloxTreatmentSchema = buildVeloxTreatmentSchema(mongoose);
     const VeloxPatientSchema = buildVeloxPatientSchema(mongoose);
     const InvoiceSchema = buildInvoiceSchema(mongoose);
-    const RoleSchema = buildRoleSchema(mongoose);
 
     const Lead = mongoose.model("Lead", LeadSchema);
     const Report = mongoose.model("LeadReport", ReportSchema);
@@ -100,7 +98,6 @@ module.exports = function (mongoose) {
     const VeloxPatient = mongoose.model("velox-patient", VeloxPatientSchema);
     const VeloxTreatment = mongoose.model("velox-treatment", VeloxTreatmentSchema);
     const Invoice = mongoose.model("invoice", InvoiceSchema);
-    const Role = mongoose.model("role", RoleSchema);
 
     return {
         Practice,
@@ -133,6 +130,5 @@ module.exports = function (mongoose) {
         VeloxTreatment,
         VeloxPatient,
         Invoice,
-        Role,
     };
 };

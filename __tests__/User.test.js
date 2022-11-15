@@ -10,7 +10,7 @@ describe("User", () => {
         try {
             await user.validate();
         } catch (e) {
-            expect(e.errors).toContainAllKeys(["email", "name", "password", "type"]);
+            expect(e.errors).toContainAllKeys(["email", "name", "password"]);
         }
     });
 
@@ -19,8 +19,7 @@ describe("User", () => {
             email: "jon@ascentpgs.com",
             name: "jon doe",
             password: "12345",
-            roleIds: [mongoose.Types.ObjectId()],
-            type: "EMPLOYEE",
+            positions: ["STRATEGIST", "ADMIN"],
         });
         await user.validate();
     });
@@ -32,7 +31,7 @@ describe("User", () => {
             _id: expect.any(mongoose.Types.ObjectId),
             calendlyLink: "",
             imageUrl: "",
-            roleIds: [],
+            positions: [],
         });
     });
 });
