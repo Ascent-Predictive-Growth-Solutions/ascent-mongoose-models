@@ -6,6 +6,7 @@ module.exports = function (mongoose) {
         password: { type: String, required: true },
         calendlyLink: { type: String, default: "" },
         imageUrl: { type: String, default: "" },
+        clientAssignmentPriority: { type: Number, default: 0 },
         positions: { type: [{ type: String, enum: ["STRATEGIST", "ADMIN"] }], default: [] },
     });
 };
