@@ -29,8 +29,7 @@ const buildNewPatientSchema = require("./schemaBuilders/NewPatient");
 const buildVeloxTreatmentSchema = require("./schemaBuilders/VeloxTreatment");
 const buildVeloxPatientSchema = require("./schemaBuilders/VeloxPatient");
 const buildInvoiceSchema = require("./schemaBuilders/Invoice");
-
-module.exports = function (mongoose) {
+const createModels = function (mongoose) {
     const PeriodSchema = buildPeriodSchema(mongoose);
     const KpiMonthSchema = buildKpiMonthSchema(mongoose, { PeriodSchema });
     const SeoMonthSchema = buildSeoMonthSchema(mongoose, {
@@ -132,3 +131,5 @@ module.exports = function (mongoose) {
         Invoice,
     };
 };
+
+module.exports = createModels
