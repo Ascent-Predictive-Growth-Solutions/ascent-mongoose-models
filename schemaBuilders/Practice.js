@@ -91,5 +91,6 @@ module.exports = function (mongoose) {
         adviceLocalClientId: { type: String, default: "" },
         googleAnalyticsPropertyId: { type: String },
         nextVeloxTimestamp: { type: String },
+        isNewModel: {type: Boolean},
     });
 };
