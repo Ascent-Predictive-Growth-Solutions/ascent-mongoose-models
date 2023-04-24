@@ -86,6 +86,7 @@ module.exports = function (mongoose) {
         adviceLocalClientId: { type: String, default: "" },
         googleAnalyticsPropertyId: { type: String },
         nextVeloxTimestamp: { type: String },
-        pmsType: {type: String, enum: ["dentrix", "eaglesoft", "openDental", "dentrixAscend", "other", "unknown"], default: "unknown"}
+        pmsType: {type: String, enum: ["dentrix", "eaglesoft", "openDental", "dentrixAscend", "other", "unknown"], default: "unknown"},
+        isNewModel: {type: Boolean},
     });
 };

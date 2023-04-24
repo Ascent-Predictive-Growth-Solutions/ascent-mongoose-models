@@ -132,4 +132,4 @@ const createModels = function (mongoose) {
     };
 };
 
-module.exports = createModels
+module.exports = createModels;
