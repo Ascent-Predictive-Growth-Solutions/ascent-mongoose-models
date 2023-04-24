@@ -56,16 +56,13 @@ module.exports = function (mongoose) {
     return new mongoose.Schema({
         _id: { type: mongoose.Schema.ObjectId, auto: true },
         date: { type: Date, default: new Date() },
-
         practiceName: { type: String, default: "" },
         active: { type: Boolean, default: false },
         type: { type: String, default: "" },
         perPatientValue: { type: Number, default: 650 },
         details: { type: String, default: "" },
-
         strategist: { type: String, default: "" },
         startDate: { type: Date, default: new Date() },
-
         primaryContact: {
             name: { type: String, default: "" },
             label: { type: String, default: "" },
@@ -73,9 +70,7 @@ module.exports = function (mongoose) {
             email: { type: String, default: "" },
         },
         originalNumberOfSearchConsoleKeywords: { type: Number, default: 0 },
-
         tasks: { type: [TaskSchema], default: [] },
-
         placeId: { type: String, default: "" },
         googleMyBusinessAccountId: { type: String, default: "" },
         googleAnalyticsViewId: { type: String, default: "" },
@@ -91,5 +86,6 @@ module.exports = function (mongoose) {
         adviceLocalClientId: { type: String, default: "" },
         googleAnalyticsPropertyId: { type: String },
         nextVeloxTimestamp: { type: String },
+        pmsType: {type: String, enum: ["dentrix", "eaglesoft", "openDental", "dentrixAscend", "other", "unknown"], default: "unknown"}
     });
 };
